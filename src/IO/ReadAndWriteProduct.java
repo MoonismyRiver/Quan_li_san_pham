@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadAndWriteProduct {
-    File file = new File("C:\\Users\\admin\\Desktop\\Module 2\\ThiThucHanhModule2\\src\\student.csv");
+    File file = new File("C:\\Users\\admin\\Desktop\\Module 2\\ThucHanhLan2\\src\\Product.scv");
 
     public void write(List<Product> products) {
 
@@ -20,6 +20,8 @@ public class ReadAndWriteProduct {
                 bufferedWriter.write(s.write());
                 bufferedWriter.newLine();
             }
+            bufferedWriter.close();
+            fileWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -38,8 +40,8 @@ public class ReadAndWriteProduct {
                 String name = arr[1];
                 double price = Double.parseDouble(arr[2]);
                 int amount = Integer.parseInt(arr[3]);
+                products.add(new Product(id, name, price,amount));
 
-                arr.add(new Product(id, name, price,amount));
             }
 
         } catch (FileNotFoundException e) {
@@ -47,7 +49,7 @@ public class ReadAndWriteProduct {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return students;
+        return products;
 
     }
 }

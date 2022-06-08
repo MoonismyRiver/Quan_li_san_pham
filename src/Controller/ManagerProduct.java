@@ -24,8 +24,8 @@ public class ManagerProduct {
         System.out.println("4.Xóa.");
         System.out.println("5.Sắp xếp sản phẩm theo giá từ thấp đến cao.");
         System.out.println("6.Sản phẩm có giá cao nhất.");
-        System.out.println("7.Đọc từ file.");
-        System.out.println("8.Ghi vào file.");
+        System.out.println("7.Đọc dữ liệu từ file.");
+        System.out.println("8.Ghi dữ liệu hiện tại vào file.");
         System.out.println("9.Thoát");
 
 
@@ -53,10 +53,19 @@ public class ManagerProduct {
                         showMostExpensive();
                         break;
                     case 7:
-                        arrayProduct = readAndWriteProduct.read();
-                        System.out.println("Đọc thành công !");
+                        System.out.println("Đọc dữ liệu từ file có thể xóa dứ liệu chưa thêm.Có chắc đọc ?");
+                        System.out.println("1.Ok");
+                        System.out.println("2.Nope");
+                        int input = Integer.parseInt(scanner.nextLine());
+                        switch (input) {
+                            case 1:
+                                arrayProduct = readAndWriteProduct.read();
+                                System.out.println("Đọc thành công !");
+                                break;
+                            case 2:
+                                break;
+                        }
                         break;
-
                     case 8:
                         readAndWriteProduct.write(arrayProduct);
                         System.out.println("Ghi thành công! ");
